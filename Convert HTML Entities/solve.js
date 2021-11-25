@@ -1,12 +1,12 @@
 function convertHTML(str) {
-    let convObj = {
+    let convertObj = {
         '&': '&amp;',
         '<': '&lt;',
         '>': '&gt;',
         '"': '&quot;',
         '\'': '&apos;',
-    }
-    let newStr = str.split('').map(item => convObj.hasOwnProperty(item) ? convObj[item] : item).join('')
+    };
+    let newStr = str.split('').map(item => convertObj.hasOwnProperty(item) ? convertObj[item] : item).join('');
     return newStr
 }
 
