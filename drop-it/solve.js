@@ -1,16 +1,15 @@
-function chunkArrayInGroups(arr, size) {
-    let resultArr = [];
-    let count = Math.floor(arr.length / size);
-    for (let i = 0; i < count; i += 1) {
-        let item = arr.splice(0, size);
-        resultArr.push(item)
+function dropElements(arr, func) {
+    let newArr = [...arr]
+    for (let i = 0; i < arr.length; i += 1) {
+        if (!func(arr[i])) {
+            newArr.shift()
+        } else {
+            break
+        }
     }
-    if (arr.length > 0) {
-        resultArr.push(arr)
-    }
-    return resultArr
-
-
+    return newArr
 }
 
-chunkArrayInGroups(["a", "b", "c", "d",], 2);
+dropElements([1, 2, 3, 4], function (n) {
+    return n >= 3;
+});
